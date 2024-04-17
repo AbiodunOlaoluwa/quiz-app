@@ -135,13 +135,13 @@ const QuizPage = () => {
             ))
               }
               { optionSelected ? 
-              <button className="submitContainer submitTextContainer" onClick={handleNextQuestionClick}>
+              <button className="submitContainer submitTextContainer optionSubmitContainer" onClick={handleNextQuestionClick}>
               <p className="submitText">
                 Next Question
               </p>
             </button>
               :
-              <button className="submitContainer submitTextContainer" onClick={handleSubmitClick}>
+              <button className="submitContainer submitTextContainer optionSubmitContainer" onClick={handleSubmitClick}>
                 <p className="submitText">
                   Submit Answer
                 </p>
