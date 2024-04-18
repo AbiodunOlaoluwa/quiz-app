@@ -8,7 +8,7 @@
     gap: auto;
     width: 80%;
     z-index: 2;
-    overflow: hidden;
+    overflow-y: scroll;
   }
 
   .quizIndicator {
@@ -120,6 +120,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    overflow-y: scroll;
   }
 
   .optionsContainer {
@@ -167,7 +168,7 @@
     gap: auto;
     width: 80%;
     z-index: 2;
-    overflow: hidden;
+    overflow-y: scroll;
   }
 
   .quizIndicator {
@@ -320,6 +321,7 @@
     gap: auto;
     width: 80%;
     z-index: 2;
+    overflow-y: scroll;
   }
 
   .quizIndicator {
@@ -483,7 +485,7 @@
   }
 
   .option:focus {
-    outline: 1px solid #a729f5;
+    background-color: #a729f5;
   }
 
   .optionSubmitContainer {
