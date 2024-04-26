@@ -16,6 +16,11 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 :root {
   --dark-navy: #313e51;
   --purple: #a729f5;
@@ -40,6 +45,14 @@ body {
     color: var(--pure-white);
   }
 
+  .backGroundContainer {
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
+    position: absolute;
+    overflow: hidden;
+  }
+
   .firstCurve {
     box-sizing: border-box;
     position: fixed;
@@ -52,6 +65,17 @@ body {
 
   .secondCurve {
     display: none;
+  }
+
+  .mainContentContainer {
+    z-index: 2;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
   }
 
   .mainContent {
@@ -215,6 +239,14 @@ body {
     color: var(--pure-white);
   }
 
+  .backGroundContainer {
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
+    position: absolute;
+    overflow: hidden;
+  }
+
   .firstCurve {
     box-sizing: border-box;
     position: fixed;
@@ -228,6 +260,17 @@ body {
 
   .secondCurve {
     display: none;
+  }
+
+  .mainContentContainer {
+    z-index: 2;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
   }
 
   .mainContent {
@@ -397,6 +440,14 @@ body {
     overflow: hidden;
   }
 
+  .backGroundContainer {
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
+    position: absolute;
+    overflow: hidden;
+  }
+
   .firstCurve {
     box-sizing: border-box;
     position: fixed;
@@ -420,13 +471,24 @@ body {
     overflow: hidden;
   }
 
+  .mainContentContainer {
+    z-index: 2;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
   .mainContent {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: auto;
     width: 80%;
-    z-index: 2;
+    /* z-index: 2; */
   }
 
   .textIntroduction {
@@ -506,7 +568,24 @@ body {
   }
 
   .optionBox:hover {
+    opacity: 0.85;
     cursor: pointer;
+  }
+
+  .accessibility:hover {
+    border: solid 0.1px #a729f5;
+  }
+
+  .javascript:hover {
+    border: solid 0.1px blue;
+  }
+
+  .css:hover {
+    border: solid 0.1px var(--green);
+  }
+
+  .html:hover {
+    border: solid 0.1px var(--red);
   }
 
   .htmlIcon {

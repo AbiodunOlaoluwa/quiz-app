@@ -86,67 +86,87 @@ const QuizPage = () => {
   }
 
   const handleSubmitClick = (event) => {
-    if (selectedAnswer === currentQuestion.answer) {
+    if (selectedAnswer === "") {
+      alert("You Must Select an Option Before Proceeding")
+    }
+    else if (selectedAnswer === currentQuestion.answer) {
       setUserScore(userScore + 1);
       setOptionSelected(true);
+      setSelectedAnswer("");
     }
     else {
       setOptionSelected(true);
+      setSelectedAnswer("");
+    }
+  }
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (!optionSelected) {
+        handleSubmitClick();
+      }
+      else if (optionSelected) {
+        handleNextQuestionClick();
+      }
     }
   }
 
   return (
     <div className="pageContainer">
-      <div className="firstCurve"></div>
-      <div className="secondCurve"></div>
-      <div className="quizContent">
-        <div className="quizIndicator">
-          <div className="indicatorContent">
-            <div className="iconContainer">
-              {icon}
-            </div>
-            <div className="indicatorText">
-              {state.topic}
-            </div>
-          </div>
-          <div className="swithTheme"></div>
-        </div>
-        <div className="questionContentContainer">
-          <div className="questionContent">
-            <div className="questionContentText">
-              <div className="questionIndicator">
-                <p className="questionIndicatorText"><i>{`Question ${currentQuestionIndex + 1} of ${questions.length}`}</i></p>
+      <div className="backGroundContainer">
+        <div className="firstCurve"></div>
+        <div className="secondCurve"></div>
+      </div>
+      <div className="mainContentContainer">
+        <div className="quizContent" onKeyDown={handleKeyDown}>
+          <div className="quizIndicator">
+            <div className="indicatorContent">
+              <div className="iconContainer">
+                {icon}
               </div>
-              <div className="questionTextContainer">
-                <p className="questionText">
-                  {currentQuestion.question}
-                </p>
+              <div className="indicatorText">
+                {state.topic}
               </div>
             </div>
+            <div className="swithTheme"></div>
           </div>
-          <div className="answerOptionsContainer">
-            <div className="optionsContainer optionBoxes">
-              {currentQuestion.options.map((option, index) => (
-                <div tabIndex={0} className="optionBox option" key={index} onClick={() => {
-                  handleAnswerSelect(option)
-                }}>
-                  <p className="optionBoxText">{option}</p>
+          <div className="questionContentContainer">
+            <div className="questionContent">
+              <div className="questionContentText">
+                <div className="questionIndicator">
+                  <p className="questionIndicatorText"><i>{`Question ${currentQuestionIndex + 1} of ${questions.length}`}</i></p>
                 </div>
-              ))
-              }
-              {optionSelected ?
-                <button className="submitContainer submitTextContainer optionSubmitContainer" onClick={handleNextQuestionClick}>
-                  <p className="submitText">
-                    Next Question
+                <div className="questionTextContainer">
+                  <p className="questionText">
+                    {currentQuestion.question}
                   </p>
-                </button>
-                :
-                <button className="submitContainer submitTextContainer optionSubmitContainer" onClick={handleSubmitClick}>
-                  <p className="submitText">
-                    Submit Answer
-                  </p>
-                </button>
-              }
+                </div>
+              </div>
+            </div>
+            <div className="answerOptionsContainer">
+              <div className="optionsContainer optionBoxes">
+                {currentQuestion.options.map((option, index) => (
+                  <div tabIndex={0} className="optionBox option" key={index} onKeyDown={handleKeyDown} onClick={() => {
+                    handleAnswerSelect(option)
+                  }}>
+                    <p className="optionBoxText">{option}</p>
+                  </div>
+                ))
+                }
+                {optionSelected ?
+                  <button className="submitContainer submitTextContainer optionSubmitContainer" onClick={handleNextQuestionClick}>
+                    <p className="submitText">
+                      Next Question
+                    </p>
+                  </button>
+                  :
+                  <button className="submitContainer submitTextContainer optionSubmitContainer" onClick={handleSubmitClick}>
+                    <p className="submitText">
+                      Submit Answer
+                    </p>
+                  </button>
+                }
+              </div>
             </div>
           </div>
         </div>
